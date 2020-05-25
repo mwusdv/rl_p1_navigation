@@ -82,10 +82,6 @@ if __name__ == '__main__':
     # get env
     env, state_size, action_size = get_env()
 
-    # play randomly
-    print('Playing randomly')
-    play(env)
-            
     # training
     print('Training...')
     agent = Agent(state_size, action_size, seed=0)
