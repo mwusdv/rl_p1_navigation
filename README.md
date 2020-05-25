@@ -25,18 +25,17 @@ In the project, we need the Unity environment. We can download it that has alrea
 
 Then, place the file in the rl_p1_navigation/ folder and unzip (or decompress) the file.
 
-## Instructions
-There are three python files in the project repo:
-* `common.py`:   contains code for initializing and playing in the banana environement.
+I was working on this project in the ubuntu system. So a `Banana_Linux` folder has already been put in the project repo. It can be used directly in the unbuntu system.
 
-* `train.py`: contains the code for training the DQN agent. To launch the code, use 
+## Instructions
+To launch the training code, use 
 
             python train.py dqn_fname
     
-    The last parameter `dqn_fname` is the name of the file where the trained agent to be stored.
+The last parameter `dqn_fname` is the name of the file where the trained agent to be stored.
 
-* `test.py`: contains the code to play the banana environment, either randomly or with a trained DQN agent. To launch the code:
+To launch the test code, use
 
             python test.py dqn_fname
 
-    The last parameter `dqn_fname` is optional. If it is given, the code will play the trained agent stored in that file, otherwise the code will play the environment randomly.
+The last parameter `dqn_fname` is optional. If it is given, the code will play the trained agent stored in that file, otherwise the code will play the environment randomly.
