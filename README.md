@@ -25,17 +25,20 @@ In the project, we need the Unity environment. We can download it that has alrea
 
 Then, place the file in the rl_p1_navigation/ folder and unzip (or decompress) the file.
 
-I was working on this project in the ubuntu system. So a `Banana_Linux` folder has already been put in the project repo. It can be used directly in the unbuntu system.
-
 ## Instructions
-To launch the training code, use 
+Firt download the necessary zip file according to the above section. Then please modify the 16-th line in the `common.py` accordingly:
+
+        env = UnityEnvironment(file_name="./Banana_Linux/Banana.x86")
+with the correct file name. Currently it is set as `./Banana_Linux/Banana.x86` since I worked on this project in a ubuntu system. 
+
+To launch the training code:
 
             python train.py dqn_fname
     
-The last parameter `dqn_fname` is the name of the file where the trained agent to be stored.
+The last parameter `dqn_fname` is the name of the file where the trained agent will be stored.
 
-To launch the test code, use
+To launch the test code:
 
             python test.py dqn_fname
 
-The last parameter `dqn_fname` is optional. If it is given, the code will play the trained agent stored in that file, otherwise the code will play the environment randomly.
+The last parameter `dqn_fname` is optional. If it is given, the code will play with the trained agent stored in that file, otherwise the code will play the environment randomly.
