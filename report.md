@@ -46,6 +46,21 @@ There are several comoponents in the training algorithm:
 
     where `w_` are the weights of a separate target network that are not changed during the learning step. And this target network is updated after the each learning step. Details can be seen in the `soft_update` funtion in `dqn_agent.py`.
 
+## Hyperparameters
+A few hyperparameters are used in the training process. They are listed as follows:
+
+* `BUFF_SIZE = 100000`, the size of the replay buffer.
+* `BATCH_SIZE = 64`, the batch size in stochastic gradien descent.
+* `LR = 5e-4`, learning rate.
+* `GAMMA = 0.99`, the discount factor for computing accumulated gains.
+* `TAU = 1e-3`, this is used in `soft_update` to update the separate target DQN.
+* `Epsilon` greedy is used, for the value of epsilon:
+    * `eps_start = 1.0`, the initial value of epsilon.
+    * `eps_end = 0.02`, the minial value of epsilon.
+    * `eps_decay = 0.995`, the decaying factor after each episode.
+
+I used the default parameter values for most of the above hyperparameters except `epsilon_end`. I changed it from 0.01 to 0.02. The reason is that with 0.01, I sometimes observed the agent got stuck in the sampe place by repeating the same actions. So I selected a slightly bigger `eps_end` to add more randomness. This seems to be helpful.
+
 
 ## Results
 ### Training
@@ -74,3 +89,16 @@ The last parameter `dqn-fname` is the name of the file where the trained agent i
 ![Here is a screen shot of the test running:](./test.jpg)
 
 It can be seen that with the trained agent, a score of 18 has been obtained during the test run.
+
+## Future Works
+A Double DQN algorithm has been experimented in this project. In the future, we could explore other possibilities:
+
+* **Rainbow algorithm** [1]. It combines several improvements of the basic DQN algorithm.
+
+* **CNN**. The input to the DQN in this project is a 37-dimensonal vector, which contains the useful information of the environment. In the future, we coudld try to use the image pixel values as the input directly. Corresondingly, we need to change the backbone neural network from a feed forward neural network to a convolutional neural network which can process image infomation effecitively.
+
+
+## References
+[1] Matteo Hessel, Joseph Modayil, Hado van Hasselt, Tom Schaul, Georg Ostrovski, Will Dabney, Dan Horgan, Bilal Piot, Mohammad Azar, David Silver. Rainbow: Combining Improvements in Deep Reinforcement Learning. *Proceedings of AAAI-2018*
+
+
